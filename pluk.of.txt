@@ -1,0 +1,1890 @@
+ { Ordinal Fractions, copyright Bo Jacoby 1996, 2006-04-24
+1 Introduction
+10361 1320 = 1000+0300+0020 = (M*1  +  C*3  +  X*2)
+103611 1000=M, 0100=C, 0010=X, 0001=I
+103612 1000=(M*1), 0300=(C*3), 0020=(X*2)
+103614 0020=20
+10362 1320 = 1000+0300+0020 = (M=1 and C=3 and X=2)
+103621 1000=(M=1), 0100=(C=1), 0010=(X=1), 0001=(I=1)
+103622 1000=(M=1), 0300=(C=3), 0020=(X=2)
+103624 0020=002
+11 English
+111 Guide
+1111 The ordinal fraction data base
+11111 This very presentation is in itself an ordinal fraction data base
+111111 Each line consists of one line-number and one data field
+111112 The line-number is on the left
+111113 The data field is the subsequent text or number
+111114 The top line contains the query ordinal fraction
+11112 The colors
+111121 White data line is the answer
+111122 Red lines are headerlines to the white line
+111123 Green lines are detail-lines
+111124 Yellow lines are headerlines to the green ones
+1112 The program 'PLUK' (meaning 'pick')
+11121 Enter PLUK
+111211 Click ikon PLUK from Windows. Default-file PLUK.OF
+111212 Click an .OF-file from Windows
+111213 Enter PLUK PLUK.OF from DOS
+11122 Using PLUK
+111221 Browse
+1112211 Upper left corner contains the query ordinal fraction
+11122111 controlling the screen
+11122112 compatible records are shown
+1112212 There is a cursor in a column
+11122121 Arrow-keys move the cursor left and right
+11122122 Arrow-keys scroll the screen up and down
+1112213 Type a digit-key to change under the cursor
+1112214 Type backspace to delete from the right
+111222 Edit
+1112221 Enter edit-mode
+11122211 Pick the white line to be edited
+11122212 Type Ctrl-E
+1112222 Use edit-mode
+11122221 Insert
+111222211 If there was no white line, one will be inserted
+11122222 Change
+111222221 Data in the white line can be corrected
+11122223 Delete
+111222231 By deleting the datafield, the line is deleted from the database
+11122224 Move
+111222241 Changing the line number moves white and green lines
+111222242 Warning
+1112222421 old data in the new place are overwritten
+1112222422 yellow lines are not moved
+11122225 Run
+111222251 If the white line contains a program name
+111222252 The program is run by typing Ctrl-R
+111222253 Type Esc twice afterwards
+111222254 Sample programs:
+1112222541 wave
+1112222542 cykint
+1112222543 etc
+1112223 Exit edit-mode
+11122231 Accept typing Enter
+11122232 Regret typing Esc
+1112224 After Edit
+11122241 After progress
+111222411 Type ctrl-S for Save ('Commit')
+11122242 After a step back
+111222421 Type Esc for 'Rollback'
+111223 Settings
+1112231 Inverse Video
+11122311 Type ctrl-V to toggle inverse video
+1112232 Print
+11122321 Type Ctrl-P to copy the selected data to FIL2.OF
+111224 Exit
+1112241 Type Esc
+11123 Exit
+111231 Esc
+112 The Ordinal Fraction combines 6 classical data addressing techniques
+11201 for example:
+1121 Fields and Programs have got NAMES
+11211 NUM-ARBGIV-O101, CINH079
+1122 records have KEY FIELDS
+11221 CPR=2907462539
+1123 Table elements have Indexes
+11231 a(i) or WEEK-ELEMENT(WEEK)
+1124 files have COMPOSITE NAMES
+11241 F:\UDV\UDVMODEL\OPGVEJL.DOC
+1125 chapters and sections have COMBINED NUMBERS
+11251 1.1.2.5.1
+1126 textlines may have LINIE NUMBERS
+11261 11261
+113 More about Ordinal Fractions
+1131 Data Base Design
+11311 Concept Relations match Ordinal Fraction Relations
+113111 A superordinate concept matches a superordinate ordinal fraction
+113112 A subordinate concept matches a subordinate ordinal fraction
+113113 Incompatible concepts have incompatible ordinal fractions
+113114 Identical concepts have identical ordinal fractions
+113115 Otherwise two concepts have compatible ordinal fractions
+11312 The data base is self-explanatory
+113121 Containing its own name
+113122 Contains header fields
+113123 Contains detail fields
+113124 no abbreviations
+113125 no indexes nor pointers
+11313 The data base is general
+113131 containing hierarchies
+1131311 Top level
+11313111 first branch
+113131111 bottom level, first box
+113131112 bottom level, second box
+11313112 second branch
+113132 containing tables
+11313201 left column
+11313202 right column
+1131321 top row
+11313211 upper left cell
+11313212 upper right cell
+1131322 bottom row
+11313221 lower left cell
+11313222 lower right cell
+1132 look like integers
+11321 e.g. 11321
+11322 padded with zeroes to the right like decimal fractions
+113221 e.g. 1132210 = 113221
+1133 addresses big and small amounts of data in the same way
+11331 an ordinal fraction points to a part of a totality
+113311 thus the name 'Ordinal Fraction'
+1134 relations are computed
+11341 e.g.0>1>11>113>1134>11341
+1135 describes structural relations
+11351 superordinate (red) 11351  > 1135110
+11352 coordinate (yellow) 11352 <> 1135010
+11353 subordinate (green) 11353 <  11350
+11354 equal       (white) 11354 =  113540
+11355 incompatible    (-) 11355 >< 113560
+1136 Ordinal Fractions do for logic, what Arabic Numerals did for arithmetic !
+11361 consider the INTEGER 1320
+113611 positions of digits replace unit names
+113612 values of digits replaces counts of units
+113613 0 means 'nothing'
+113614 zeroes to the LEFT can be omitted
+113615 +  means 'add'
+11362 consider the ORDINAL FRACTION 1320
+113621 the position of the digit replaces the name of the variable
+113622 the value of the digit is the value of the variable
+113623 0 means 'no condition'
+1136231 0 in the linenumber marks a header line
+1136232 0 in a query is a wild-card character
+113624 zeroes to the RIGHT can be omitted
+113625 +  means 'and'
+114 Nine commandments for database designers: THOU SHALLT NOT . . .
+1141 count to 0
+1142 collect header-lines into a dictionary
+1143 accept response time
+1144 study manuals
+1145 have . . .
+11451 abbreviations
+11452 redundancy
+11453 fixed length fields
+11454 variable-names
+11455 multiple fields per record
+115 Ordinal Fraction arithmetic
+12 Dansk
+121 Vejledning
+1211 Ordinalbr›kdatabasen
+12111 Dette kursusmateriale er selv en ordinalbr›kdatabase
+121111 Hver linie best†r af ‚t linienummer og ‚t datafelt
+121112 linienummeret er til venstre
+121113 datafeltet er efterf›lgende tekst eller tal
+121114 Data v‘lges med foresp›rgselsordinalbr›ken i ›verste linie
+12112 Om farverne
+121121 Den hvide dataline er svaret p† sp›rgsm†let
+121122 R›de linier er overskrifter til den hvide
+121123 Gr›nne linier er detaljelinier
+121124 Gule linier er overskrifter til de gr›nne
+1212 PLUK-programmet
+12121 Ind i PLUK
+121211 Klik ikon PLUK fra windows. Default-fil: PLUK.OF
+121212 Klik p† en .OF-fil fra Windows
+121213 Tast PLUK PLUK.OF fra DOS
+12122 Bruge PLUK
+121221 Dataudv‘lgelse
+1212211 verst til venstre st†r udv‘lgelses-ordinalbr›ken.
+12122111 Derfra kontrolleres sk‘rmbilledet.
+12122112 forligelige linier vises
+1212212 En ciffertast retter under cursorpositionen
+1212213 Backspace sletter fra h›jre
+1212214 Cursor flyttes
+12122141 til venstre med venstrepil
+12122142 til h›jre med h›jrepil
+1212215 Sk‘rmbillede scroll
+121221501 pil
+121221502 page
+12122151 up
+12122152 down
+121222 Edit-mode
+1212221 Ind i edit-mode
+12122211 V‘lg den hvide linie, som skal editeres
+12122212 Tast ctrl-E
+1212222 Bruge edit-mode
+12122221 Inds‘t
+121222211 Hvis der ikke var nogen hvid linie, bliver den indsat
+12122222 Ret
+121222221 Data i den hvide linie kan rettes
+12122223 Slet
+121222231 Ved at blanke data ud, slettes linien fra databasen
+12122224 Flyt
+121222241 Ved at rette linienummeret flyttes hvide og gr›nne linier
+121222242 Advarsel
+1212222421 gamle data p† det nye sted bliver overskrevet
+1212222422 gule linier flyttes ikke
+12122225 K›r
+121222251 Hvis den hvide linie indeholder et programnavn
+121222252 bliver programmet eksekveret med Ctrl-R for 'Run'
+121222253 Bagefter tastes Esc Esc (2 gange)
+121222254 Program-eksempler
+1212222541 wave
+1212222542 cykint
+1212222543 etc
+1212222544 turbo pluk.of
+1212223 Ud af edit-mode
+12122231 Godkend med Enter
+12122232 Fortryd med Esc
+1212224 Efter edit
+12122241 efter et fremskridt
+121222411 tast ctrS for 'Save' eller 'Commit'
+12122242 efter et tilbageskridt
+121222421 tast Esc for 'Rollback'
+121223 Tilpasning
+1212231 Invers video
+12122311 Tast Ctrl-V for at skifte til og fra invers video
+1212232 Udskrift
+12122321 tast Ctrl-P for at kopiere det udvalgte til FIL2.OF
+12123 Ud af PLUK
+121231 Tast Esc
+122 Ordinalbr›kerne fusionerer 6 klassiske data-adresseringsmetoder
+12201 for eksempel:
+1221 felter og programmer har NAVNE
+12211 NUM-ARBGIV-O101, CINH079
+1222 records har NGLEFELTER
+12221 CPR=2907462539
+1223 tabelelementer har indices
+12231 a(i) eller UGE-ELEMENT(W-UGE)
+1224 filer har SAMMENSATTE NAVNE
+12241 F:\UDV\UDVMODEL\OPGVEJL.DOC
+1225 kapitler og afsnit har SAMMENSATTE NUMRE
+12251 1.2.2.5.1
+1226 tekstlinier kan have LINIENUMRE
+12261 12261
+123 Mere om ordinalbr›ker
+1231 databasedesign
+12311 begrebsrelationer svarer til ordinalbr›krelationer
+123111 Et overbegreb har en overordnet ordinalbr›k
+123112 Et underbegreb har en underordnet ordinalbr›k
+123113 Uforligelige begreber har uforligelige ordinalbr›ker
+123114 Ens begreber har identiske ordinalbr›ker
+123115 To begreber har ellers sideordnede ordinalbr›ker
+12312 databasen er selvforklarende
+123121 indeholder sit eget navn
+123122 indeholder overskriftfelter
+123123 indeholder detaljefelter
+123124 indeholder ingen forkortelser
+123125 indeholder ingen indexer, ingen pointere
+12313 databasen er generel
+123131 kan indeholde hierarkier:
+1231311 top niveau i hierarkiet
+12313111 n‘ste niveau, f›rste gren
+123131111 bundniveau, f›rste kasse
+123131112 bundniveau, anden kasse
+12313112 n‘ste niveau, anden gren
+123132 kan indeholde tabeller:
+12313201 venstre s›jle
+12313202 h›jre s›jle
+1231321 ›verste r‘kke
+12313211 cellen foroven tilvenstre
+12313212 cellen foroven tilh›jre
+1231322 nederste r‘kke
+12313221 cellen forneden tilvenstre
+12313222 cellen forneden tilh›jre
+1232 ligner almindelige heltal
+12321 fx: 12321
+12322 men med efterstillede nuller ligesom decimalbr›ker
+123221 fx 1232210 = 123221
+1233 adresserer store og sm† datam‘ngder ensartet
+12331 En ordinalbr›k peger p† en del af en helhed
+123311 deraf navnet 'ordinalbr›k'
+1234 relationer f†s ved beregning
+12341 fx: 0>1>12>123>1234>12341
+1235 beskriver strukturrelationer
+12351 overordnet  (r›d)   12351  > 1235110
+12352 sideordnet  (gul)   12352 <> 1235010
+12353 underordnet (gr›n)  12353 <  12350
+12354 lig med     (hvid)  12354 =  123540
+12355 uforligelig (v‘k)   12355 >< 123560
+1236 Ordinalbr›ken er for logikken, hvad arabertallet var for aritmetikken !
+12361 Betragt HELTALLET 1320
+123611 cifferpositionen erstatter enhedsnavnet
+123612 cifferv‘rdien er enhedst‘lleren
+123613 0  betyder 'ingenting'
+123614 FORANSTILLET  0  kan udelades
+1236141 01320=1320
+123615 +  betyder 'plus'
+12362 Betragt ORDINALBRKEN 1320
+123621 cifferpositionen erstatter variabelnavnet
+123622 cifferv‘rdien er variabelv‘rdien
+123623 0 betyder 'ingen betingelse'
+1236231 0 i linienummeret er overskriftmarkering
+1236232 0 i foresp›rgslen er jokertegn
+123624 EFTERSTILLET  0  kan udelades
+1236241 1320=132
+123625 +  betyder 'og'
+124 Databasedesignerens ni bud: Du skal ikke . . .
+1241 t‘lle til 0
+1242 g›re dig et 'dictionary' til dine overskrifter
+1243 finde dig i svartider
+1244 studere manualer
+1245 have . . .
+12451 forkortelser
+12452 gentagelser
+12453 fastl‘ngdefelter
+12454 variabelnavne
+12455 flere datafelter i en post
+125 Ordinalbr›karitmetik
+12501 Fortolkning
+12502 Algebra
+12503 Regneregler
+12504 Eksempler
+1251 sum x=a+b
+12511 "lille og r›dh†ret"
+12512 a+b=b+a; (a+b)+c=a+(b+c); a+b<=a
+12513 0+0=0; 1+0=1+1=1; 2+0=2+2=2; 1+2=2+1=ERROR
+12514 10+02=12; 10+20=ERROR; 10+12=12;
+1252 Differens x=a-b
+12521 "forskellen mellem dansk og tysk"
+12522 a-b=b-a; (a-b)-c=a-(b-c); a-b>=a
+12523 0-0=1-0=2-0=1-2=0; 1-1=1; 2-2=2
+12524 10-12=10; 21-22=02
+1253 Produkt x=a*b
+12531 x er absolut adresse, a er basis, b er relativ adresse
+12532 (a*b)*c=a*(b*c); a*b<=a
+12533 0*a=a*0=a;
+12534 1*23=123; 01*23=213; 0102*345=31425
+1254 Kvotient x=a/b,  fjerdeproportional a/b=c/x
+12541 Margrethe forholder sig til Danmark som Elizabeth til ?
+12542 (Margrethe)/(Danmark)=(Elisabeth)/X
+12543 (gammel hvid)/(ny hvid)=(gammel gr›n)/(ny gr›n)
+2 Database Examples
+21 relational
+211 Date's
+21100001 Nut
+21100002 Bolt
+21100003 Screw
+21100004 Cam
+21100005 Cog
+2110001 Red
+2110002 Green
+2110003 Blue
+21101 London
+211011 Smith
+211012 Clark
+21102 Paris
+211021 Jones
+211022 Blake
+21103 Athens
+211031 Adams
+2111 Supplier status
+211111 20
+211112 20
+211121 10
+211122 30
+211131 30
+2112 Product weight
+21120011 12
+21120013 14
+21120015 19
+21120022 17
+21120033 17
+21120034 12
+2113 Stock quantity
+21131111 3
+21131113 2
+21131115 1
+21131122 2
+21131133 4
+21131134 1
+21131213 3
+21131222 2
+21131234 4
+21132111 3
+21132122 4
+21132233 4
+21132234 2
+21133124 5
+212 ACME WIDGET
+2120001 LOCATION
+2120003 MGR
+2120004 HIREDATE
+2120005 MONTHLY SALARY
+2120006 COMM
+21201 CLERK
+21202 SALESMAN
+21203 MANAGER
+21204 ANALYST
+21205 PRESIDENT
+2121 ACCOUNTING
+2121001 NEW YORK
+212111 MILLER
+2121113 12131
+2121114 23-JAN-82
+2121115 1,300.00
+212131 CLARK
+2121313 12151
+2121314 09-JUN-81
+2121315 2,450.00
+212151 KING
+2121514 17-NOV-81
+2121515 5,000.00
+2122 RESEARCH
+2122001 DALLAS
+212211 SMITH
+2122113 12242
+2122114 17-DEC-80
+2122115 800.00
+212212 ADAMS
+2122123 12241
+2122124 23-SEP-81
+2122125 1,100.00
+212231 JONES
+2122313 12151
+2122314 02-APR-81
+2122315 2,975.00
+212241 SCOTT
+2122413 12231
+2122414 09-NOV-81
+2122415 3,000.00
+212242 FORD
+2122423 12231
+2122424 03-DEC-81
+2122425 3,000.00
+2123 SALES
+2123001 CHICAGO
+212311 JAMES
+2123113 12331
+2123114 03-DEC-81
+2123115 950.00
+212321 ALLEN
+2123213 12331
+2123214 20-FEB-81
+2123215 1,600.00
+2123216 300.00
+212322 WARD
+2123223 12331
+2123224 22-FEB-81
+2123225 1,250.00
+2123226 500.00
+212323 MARTIN
+2123233 12331
+2123234 28-SEP-81
+2123235 1,250.00
+2123236 1.400.00
+212324 TURNER
+2123243 12331
+2123244 08-SEP-81
+2123245 1,500.00
+2123246 0.00
+212331 BLAKE
+2123313 12151
+2123314 01-MAY-81
+2123315 2,850.00
+2124 OPERATIONS
+2124001 BOSTON
+213 06-12-2000 Simon Jensen, Nokia R&D Copenhagen. Imaginary people in Nokia
+213001 Danish
+213002 Swedish
+213003 British
+213004 Finish
+21301 Male
+21302 Female
+2131 Nokia Mobile Phones (NMP)
+2131111 Paul
+2131221 Inge
+2131222 Hilda
+2132 Nokia Networks (NET)
+2132141 Juha
+2132231 Elisabeth
+22 tabular, kindergarten
+220001 girl
+220002 boy
+22001 nice
+22002 naughty
+2201 black hair
+2202 blonde
+2203 red hair
+221 big
+221111 Berta
+221112 Klavs
+221121 Trine
+221122 Niels
+221211 Inger
+221212 Tomas
+221221 Marie
+221222 Peter
+221311 Rikke
+221312 Rumle
+221321 Gerda
+221322 Allan
+222 little
+222111 Nanna
+222112 Frede
+222121 Sofie
+222122 Kevin
+222211 Lotte
+222212 David
+222221 Birte
+222222 Jakob
+222311 Frida
+222312 S›ren
+222321 Sonja
+222322 Carlo
+23 hierarchy, indo-europ‘isk
+2311 germansk
+23111 nordgermansk, nordisk
+231111 urnordisk (200-800)
+2311121 ›stnordisk
+23111211 dansk
+231112111 olddansk, runedansk (800-1100)
+231112112 gammeldansk (1100-1500)
+231112113 ‘ldre nydansk (1500-1700)
+231112114 nydansk (1700-)
+23111212 svensk
+231112121 runesvensk (800-1225)
+231112122 fornsvensk (1225-1526)
+231112123 ‘ldre nysvensk (1526-1732)
+231112124 nysvensk (1732-)
+2311122 vestnordisk
+23111221 norsk
+231112211 runenorsk (800-1050)
+231112212 gammelnorsk (1050-1350)
+231112213 mellemnorsk (1350-1525)
+231112214 nynorsk (1525-)
+23111222 islandsk
+231112221 oldnordisk, oldislandsk (1170-1550)
+231112222 nyislandsk (1550-)
+23111223 f‘r›sk (1000-)
+23112 ›stgermansk
+231121 gotisk (4.†rh)
+231122 krimgotisk (16.†rh)
+23113 vestgermansk
+231131 tysk
+2311311 nedertysk
+231131111 oldsaksisk (800-1200)
+231131112 middelnedertysk (1200-1500)
+231131113 nedertysk (1500-)
+231131121 old(neder)frankisk (900-1250)
+231131122 middelhollandsk, middelnederlandsk (1250-1500)
+231131123 hollandsk, flamsk (1500-)
+231131124 afrikaans
+2311312 h›jtysk
+23113121 oldh›jtysk (740-1100)
+23113122 middelh›jtysk (1100-1450)
+23113123 ‘ldre nyh›jtysk (1450-1650)
+23113124 nyh›jtysk (1650-)
+231132 anglo-frisisk
+2311321 engelsk
+23113211 oldengelsk, angelsaksisk (700-1100)
+23113212 middelengelsk (1100-1500)
+23113213 nyengelsk (1500-)
+2311322 frisisk
+23113221 oldfrisisk (1270-1500)
+23113222 nyfrisisk (1500-)
+2312 keltisk
+23121 fastlandskeltisk
+231211 gallisk (4.†rh)
+23122 ›keltisk
+231221 ogham-indskrifter (4.-7.†rh)
+231222 irsk
+2312221 oldirsk (700-1100)
+2312222 middelirsk (1100-1500)
+2312223 nyirsk (1500-)
+231223 g‘lisk (i Skotland) (1500-)
+231224 manx (p† Man) (1600-)
+23123 britannisk
+231231 kymrisk (i Wales)
+2312311 oldkymrisk (800-1100)
+2312312 middelkymrisk (1100-1500)
+2312313 nykymrisk (1500-)
+231232 kornisk (i Cornwall)
+2312321 oldkornisk (800-1100)
+2312322 middelkornisk (1100-1500)
+2312323 nykornisk (1500-)
+231233 bretonsk (i Bretagne)
+2312331 oldbretonsk (800-1000)
+2312332 middelbretonsk (1100-1660)
+2312333 nybretonsk (1660-)
+2313 italisk
+23131 latino-faliskisk
+231311 latin & romansk
+2313111 latin
+23131111 f›rlitter‘rt latin (500-240 f.v.t)
+23131112 oldlatin (240-100 f.v.t)
+23131113 klassisk latin (100 f.v.t - 120 e.v.t)
+23131114 arkaiserende latin (1200-200)
+23131115 sen-antik latin, sen-latin (200-600)
+23131116 vulg‘rlatin (600-)
+2313112 romansk
+23131121 italiensk
+231311211 olditaliensk (960-1300)
+231311212 nyitaliensk (1300-)
+23131122 sardisk
+23131123 spansk
+231311231 oldspansk (1145-1400)
+231311232 nyspansk (1400-)
+23131124 katalansk (1171-)
+23131125 portugisisk
+231311251 oldportugisisk (1192-1500)
+231311252 nyportugisisk (1500-)
+23131126 fransk
+231311261 gallo-romansk (600-843)
+231311262 oldfransk (843-1315)
+231311263 middelfransk (1315-1610)
+231311264 klassisk fransk (1610-1789)
+231311265 nyfransk (1789-)
+23131127 provencalsk
+231311271 oldprovencalsk (1000-1500)
+231311272 nyprovencalsk (1500-)
+23131128 r‘toromansk (1100-)
+23131129 rum‘nsk (1561-)
+231312 faliskisk (6.†rh f.v.t)
+23132 oskisk-umbrisk
+231321 oskisk (1.†rh f.v.t)
+231322 umbrisk (1.†rh f.v.t)
+23133 venetisk (1.†rh f.v.t)
+2314 illyrisk
+23141 illyrisk
+23142 messapisk (2.-1.†rh f.v.t)
+2315 baltisk
+23151 litauisk
+231511 oldlitauisk (1515-1830)
+231512 litauisk (1830-)
+23152 lettisk (1585-)
+23153 oldpreussisk (1400-1700)
+2321 slavisk
+23211 sydslavisk
+232111 bulgarsk
+2321111 oldbulgarsk, oldkirkeslavisk (900-1100)
+2321112 middelbulgarsk (1100-1600)
+2321113 nybulgarsk (1600-)
+232112 serbokroatisk (1100-)
+232113 slovensk (1400-)
+23212 ›stslavisk
+232121 russisk
+2321211 oldrussisk (1056-1750)
+2321212 nyrussisk (1750-)
+232122 ukrainsk, lillerussisk (1200-)
+232123 hviderussisk (1300-)
+23213 vestslavisk
+232131 polsk
+2321311 oldpolsk (1300-1600)
+2321312 nypolsk (1600-)
+232132 tjekkisk
+2321321 oldtjekkisk (1200-1500)
+2321322 nytjekkisk (1500-)
+232133 sorbisk, vendisk (1548-1898)
+232134 polabisk, kasubisk (1500-1750)
+2322 albansk (1500-)
+2323 gr‘sk
+23231 mykenegr‘sk (1450-1260 fvt)
+23232 klassisk gr‘sk (700-338 fvt)
+232321 jonisk-attisk
+232322 ach‘isk, arkado-kyprisk
+232323 ‘olisk
+232324 dorisk-nordvestgr‘sk
+23233 sengr‘sk
+232331 koine (338 fvt - 550 evt)
+232332 middelgr‘sk (550-1453)
+232333 nygr‘sk (1453-)
+2324 armenisk
+23241 oldarmensk (400-1100)
+23242 middelarmensk (1100-1500)
+23243 nyarmensk (1500-)
+2325 thrakisk (5.†rh f.v.t)
+2331 frygisk
+23311 oldfrygisk (7. †rh.fvt)
+23312 nyfrygisk (85 fvt)
+2332 indo-iransk
+23321 indisk
+233211 oldindisk, vedisk, sanskrit (1200-300 fvt)
+233212 middelindisk, pali, prakrit (300 fvt - 400 evt)
+233213 sen middelindisk (400-1200)
+233214 nyindisk (1200-)
+23322 iransk
+233221 avestisk (520-330 fvt)
+2332221 oldpersisk (522-486 fvt)
+2332222 middelpersisk, pehlevi (250 fvt - 252 evt)
+2332223 nypersisk (800-)
+2333 anatolisk
+23331 hittitisk (1600-1200 fvt)
+23332 luvisk (2. †rtusinde fvt)
+23333 palaisk (2. †rtusinde fvt)
+23334 hieroglyfhittitisk (11.-8.†rh f.v.t)
+23335 lykisk (5.-4.†rh fvt)
+23336 lydisk (4. †rh. fvt.)
+2334 tokharisk (6.-7.†rh)
+23341 ›sttokharisk
+23342 vesttokharisk
+24 Falck A/S koncernregnskab i tusinde kr.
+2401 Resultat
+24011 f›r skat
+240111 Drift
+2401111 Prim‘rt driftsresultat
+24011111 Indt‘gter
+240111111 Abonnement
+2401111111 Abonnementsindt‘gt
+2401111112 ’ndring i forpligtelse over for abonnenter
+240111112 Brandslukning
+240111113 Patientbefordring
+240111114 Assistence i ›vrigt
+240111115 Andre indt‘gter
+24011112 Udgifter
+240111121 L›nninger og personaleomkostninger
+2401111211 L›nninger
+24011112111 Vederlag til moderselskabets bestyrelse
+24011112112 Vederlag til koncerndirektionen
+24011112113 L›n til andre ansatte
+2401111212 Personaleomkostninger
+24011112121 Pensioner
+24011112122 Andre udgifter til social sikring
+24011112123 Andre personaleudgifter
+240111122 Vareforbrug
+2401111221 Varek›b
+2401111222 Andre eksterne udgifter
+2401111223 ’ndring i lagre
+240111123 Driftsudgifter, materiel
+240111124 Driftsudgifter, ejendomme
+240111125 Afskrivninger p† immaterielle og materielle anl‘gsaktiver
+2401111251 Goodwill og rettigheder
+2401111252 Indretning af lejede lokaler
+2401111253 Ejendomme
+2401111254 Materiel og inventar
+240111126 Salgsomkostninger, fremmed assistence m.v.
+240111127 Administration
+240111128 Statsafgifter
+2401112 Renteindt‘gter m.v.
+24011121 Renter af v‘rdipapirer
+24011122 Andre renteindt‘gter
+24011123 Udbytte af aktier
+24011124 Realiserede kursgevinster, v‘rdipapirer
+24011125 Urealiserede kursgevinster, v‘rdipapirer
+2401113 Renteudgifter m.v.
+24011131 Renteudgifter prioritetsl†n
+24011132 Renteudgifter bankl†n
+24011133 Andre renteudgifter
+24011134 Urealiserede kurstab, v‘rdipapirer
+2401114 Resultat af kapitalandele i associerede virksomheder
+240112 Ekstraordin‘re poster
+2401121 Indt‘gtsf›rt arbejdsmarkedsbidrag
+2401122 Fortjeneste ved salg af aktiviteter
+2401123 Fratr‘delsesgodtg›relser
+2401124 Anvendt/hensat til strukturtilpasninger
+2401125 Ekstraordin‘re projektudgifter
+2401126 Opstartomkostninger i Sverige
+2401127 Diverse
+24012 Selskabsskat
+2402 Balance
+24021 Aktiver
+240211 Anl‘gsaktiver
+2402111 Immaterielle anl‘gsaktiver
+24021111 Goodwill og rettigheder
+24021112 Indretning af lejede lokaler
+240211121 Anskaffelsessum 31. december
+2402111211 Anskaffelsessum 1. januar
+2402111212 Tilgang ved k›b af tilknyttet virksomhed
+2402111213 Tilgang
+2402111214 Afgang
+240211122 Afskrivninger 31. december
+2402111221 Afskrivninger 1. januar
+2402111222 Tilgang ved k›b af tilknyttet virksomhed
+2402111223 Tilbagef›rte afskrivninger ved fraflytning
+2402111224 rets afskrivninger
+2402112 Materielle anl‘gsaktiver
+24021121 Ejendomme
+24021122 Materiel og inventar
+2402113 Financielle anl‘gsaktiver
+24021131 Kapitalandele, associerede virksomheder
+24021132 Kontraktdebitorer
+24021133 V‘rdipapirer
+240212 Oms‘tningsaktiver
+2402121 Varelager
+2402122 Tilgodehavender
+2402123 Tilgodehavender associerede virksomheder
+2402124 Tilgodehavende udbytter
+2402125 V‘rdipapirer
+2402126 Egne aktier
+2402127 Likvide midler
+24022 Passiver
+240221 Egenkapital
+2402211 Falck Holdings andel
+24022111 Aktiekapital
+240221111 Aktiekapital 1. januar
+240221112 Fondsaktieemission
+240221113 Aktiekapitaludvidelse
+24022112 Reserver
+240221121 Reserver 1. januar
+240221122 Andel af resultat
+240221123 V‘rdiregulering associerede virksomheder
+240221124 Andel af tilbagef›rte opskrivninger m.v.
+240221125 Goodwill vedr›rende minoriteters andele
+240221126 Fondsaktieemmission
+240221127 Overkurs ved kapitaludvidelse
+240221128 Omkostninger ved kapitaludvidelse
+240221129 Nedskrivning af goodwill ved k›b af tilknyttet virksomhed
+2402212 Minoriteters andel
+24022121 Minoriteters andele 1. januar
+24022122 Andel af resultat
+24022123 V‘rdiregulering associerede virksomheder
+24022124 Andel af tilbagef›rte opskrivninger m.v.
+24022125 Omkostninger ved kapitaltilf›rsel
+24022126 Goodwill vedr›rende minoriteters andele
+24022127 K›b af minoriteters andele
+240222 Hens‘ttelser
+2402221 Abonnementsforpligtelse
+24022211 Abonnementsforpligtelse 1. januar
+24022212 Tilgang ved k›b af tilknyttet virksomhed
+24022213 Regulering af hens‘ttelse
+2402222 Anden hens‘ttelse
+24022221 Anden hens‘ttelse 1. januar
+24022222 Regulering af hens‘ttelse
+240223 Langfristet g‘ld
+2402231 L†n i ejendomme
+2402232 Banker
+2402233 Anden g‘ld
+240224 Kortfristet g‘ld
+2402241 L†n i ejendomme
+2402242 Banker
+2402243 Forudindbetalt abonnement m.v.
+2402244 Varekreditorer m.v.
+2402245 Statsafgifter og A-skat
+2402246 Feriepenge
+2402247 Periodiceringsposter
+2402248 G‘ld associerede virksomheder
+2402249 Selskabsskat
+2403 Financieringsanalyse, ‘ndring i likvide midler
+24031 Til disposition
+240311 Fra driften
+2403111 Resultat f›r indt‘gt af kapitalandele og skat
+2403112 Afskrivninger
+2403113 Udbytte associerede virksomheder
+2403114 Selskabsskat
+2403115 ’ndringer i abonnementshens‘ttelser
+2403116 ’ndringer i anden hens‘ttelse
+2403117 ’ndringer i varelager
+2403118 ’ndringer i ›vrige oms‘tningsaktiver
+2403119 ’ndringer i kortfristet g‘ld
+240312 Fra financieringen
+2403121 ’ndringer i langfristet g‘ld
+2403122 ’ndringer i egne aktier
+2403123 ’ndringer i v‘rdipapirer
+2403124 Kontraktdebitorer
+2403125 V‘rdireguleringer
+2403126 Nedskrivning af goodwill
+2403127 Kapitaludvidelser
+2403128 Omkostninger ved kapitaludvidelse
+24032 Anvendt, investeringer
+240321 K›b af minoritetsandele
+240322 Goodwill og rettigheder
+240323 Indretning af lejede lokaler
+240324 Ejendomme
+240325 Materiel og inventar
+240326 Associerede virksomheder
+241 †r 1991
+2411 8,733
+24111 8,760
+241111 15,489
+2411111 21,796
+24111111 2,143,698
+241111111 897,918
+241111112 175,384
+241111113 710,331
+241111114 153,352
+241111115 206,713
+24111112 -2,121,902
+241111121 -1,434,439
+241111122 -94,479
+241111123 -155,565
+241111124 -50,701
+241111125 -133,480
+241111126 -109,664
+241111127 -81,718
+241111128 -64,856
+2411112 28,227
+2411113 -32,565
+2411114 -1,969
+241112 -6,729
+24112 -27
+2412 0
+24121 1,460,342
+241211 1,063,106
+2412111 11,086
+24121112 11,086
+2412112 1,036,339
+24121121 609,666
+24121122 426,673
+2412113 15,681
+24121131 15,681
+241212 397,236
+2412121 42,298
+2412122 136,758
+2412123 668
+2412125 17,040
+2412126 40,000
+2412127 160,472
+24122 1,460,342
+241221 329,507
+2412211 264,835
+24122111 1,650
+24122112 263,185
+2412212 64,472
+241222 431,374
+2412221 431,374
+241223 275,252
+2412231 133,560
+2412232 19,787
+2412233 121,905
+241224 424,209
+2412241 7,162
+2412242 3,544
+2412243 67,712
+2412244 92,757
+2412245 100,948
+2412246 152,086
+2413 22,530
+24131 183,279
+241311 205,912
+2413111 10,729
+2413112 133,480
+2413113 668
+2413114 -27
+2413115 13,035
+2413117 -6,526
+2413118 -24,637
+2413119 79,190
+241312 -22,633
+2413121 19,466
+2413122 -40,000
+2413125 -2,099
+24132 160,749
+241324 37,312
+241325 110,013
+241326 13,424
+242 †r 1992
+2421 23,151
+24211 23,553
+242111 30,750
+2421111 33,249
+24211111 2,167,045
+242111111 908,591
+2421111111 912,414
+2421111112 -3,823
+242111112 176,344
+242111113 745,389
+242111114 149,528
+242111115 187,193
+24211112 -2,133,796
+242111121 -1,428,567
+2421111211 -1,362,270
+24211112111 -425
+24211112112 -7,418
+24211112113 -1,354,427
+2421111212 -66,297
+24211112121 -4,503
+24211112122 -20,948
+24211112123 -40,846
+242111122 -89,500
+2421111221 -91,912
+2421111222 -233
+2421111223 2,645
+242111123 -146,413
+242111124 -52,341
+242111125 -135,287
+2421111251 -326
+2421111252 -1,576
+2421111253 -25,621
+2421111254 -107,764
+242111126 -153,978
+242111127 -77,651
+242111128 -50,059
+2421112 33,799
+24211121 2,206
+24211122 13,422
+24211123 16
+24211124 155
+2421113 -34,561
+24211131 -18,388
+24211132 -13,498
+24211133 -1,693
+24211134 -982
+2421114 -1,737
+242112 -7,197
+2421121 26,349
+2421123 -9,698
+2421124 -23,857
+2421127 9
+24212 -402
+2422 0
+24221 1,540,829
+242211 1,087,704
+2422111 16,493
+24221111 2,072
+24221112 14,421
+242211121 25,078
+2422111211 17,717
+2422111213 5,361
+242211122 -8,657
+2422111221 -7,081
+2422111224 -1,576
+2422112 1,060,952
+24221121 623,156
+24221122 437,796
+2422113 10,259
+24221131 10,081
+24221133 178
+242212 453,125
+2422121 42,242
+2422122 134,882
+2422123 4,449
+2422124 1,025
+2422125 35,133
+2422127 235,394
+24222 1,540,829
+242221 275,064
+2422211 272,260
+24222111 1,650
+242221111 1,650
+24222112 270,610
+242221121 263,185
+242221122 16,120
+242221123 -4,255
+242221124 -3,274
+242221125 -1,166
+2422212 2,804
+24222121 64,672
+24222122 7,031
+24222123 -27
+24222124 -801
+24222125 -100
+24222126 1,166
+24222127 -69,137
+242222 459,809
+2422221 435,952
+24222211 431,374
+24222213 4,578
+2422222 23,857
+24222222 23,857
+242223 287,774
+2422231 141,277
+2422232 146,497
+242224 518,182
+2422241 8,022
+2422242 57,100
+2422243 89,795
+2422244 120,377
+2422245 90,503
+2422246 152,076
+2422249 309
+2423 74,922
+24231 310,810
+242311 262,641
+2423111 25,290
+2423112 135,287
+2423113 1,025
+2423114 -402
+2423115 4,578
+2423116 23,857
+2423117 56
+2423118 -21,023
+2423119 93,973
+242312 48,169
+2423121 12,522
+2423122 40,000
+2423123 -178
+2423125 -4,075
+2423128 -100
+24232 235,888
+242321 69,137
+242322 2,398
+242323 4,911
+242324 39,111
+242325 118,887
+242326 1,444
+243 †r 1993
+2431 44,223
+24311 46,824
+243111 41,509
+2431111 44,311
+24311111 2,414,775
+243111111 1,032,599
+2431111111 1,035,029
+2431111112 -2,430
+243111112 180,123
+243111113 801,775
+243111114 182,108
+243111115 218,170
+24311112 -2,370,464
+243111121 -1,597,470
+2431111211 -1,500,448
+24311112111 -425
+24311112112 -6,674
+24311112113 -1,493,349
+2431111212 -97,022
+24311112121 -13,720
+24311112122 -28,348
+24311112123 -54,954
+243111122 -91,138
+2431111221 -80,761
+2431111223 -10,377
+243111123 -158,936
+243111124 -59,866
+243111125 -148,281
+2431111251 -763
+2431111252 -2,155
+2431111253 -26,915
+2431111254 -118,464
+243111126 -172,781
+243111127 -89,370
+243111128 -52,622
+2431112 37,176
+24311121 2,996
+24311122 32,984
+24311123 10
+24311124 1,144
+24311125 42
+2431113 -40,484
+24311131 -17,784
+24311132 -20,465
+24311133 -2,222
+24311134 -13
+2431114 506
+243112 5,315
+2431122 35,000
+2431123 -9,888
+2431124 -12,421
+2431125 -2,613
+2431126 -3,209
+2431127 -1,554
+24312 -2,601
+2432 0
+24321 1,795,221
+243211 1,299,328
+2432111 34,527
+24321111 3,373
+24321112 31,154
+243211121 52,879
+2432111211 23,078
+2432111212 29,907
+2432111213 3,056
+2432111214 -3,162
+243211122 -21,725
+2432111221 -8,657
+2432111222 -12,076
+2432111223 1,163
+2432111224 -2,155
+2432112 1,226,014
+24321121 663,192
+24321122 562,822
+2432113 38,787
+24321131 7,819
+24321132 30,964
+24321133 4
+243212 495,893
+2432121 118,659
+2432122 207,228
+2432123 1,176
+2432124 970
+2432125 20,762
+2432127 147,098
+24322 1,795,221
+243221 195,721
+2432211 197,325
+24322111 145,000
+243221111 1,650
+243221112 97,350
+243221113 46,000
+24322112 52,325
+243221121 270,610
+243221122 47,687
+243221124 -584
+243221125 -5,000
+243221126 -97,350
+243221127 184,000
+243221128 -198
+243221129 -346,840
+2432212 -1,604
+24322121 2,804
+24322122 -3,464
+24322127 -944
+243222 506,504
+2432221 464,568
+24322211 435,952
+24322212 30,812
+24322213 -2,196
+2432222 41,936
+24322221 23,857
+24322222 18,079
+243223 456,867
+2432231 164,512
+2432232 292,355
+243224 636,129
+2432241 9,274
+2432242 20,706
+2432243 76,920
+2432244 139,627
+2432245 154,712
+2432246 196,416
+2432247 26,680
+2432248 1,665
+2432249 10,129
+2433 -88,296
+24331 242,509
+243311 226,828
+2433111 46,318
+2433112 148,281
+2433113 1,252
+2433114 -2,601
+2433115 28,616
+2433116 18,079
+2433117 -76,417
+2433118 -54,647
+2433119 117,947
+243312 15,681
+2433121 169,093
+2433123 174
+2433124 -30,964
+2433125 -584
+2433126 -351,840
+2433127 230,000
+2433128 -198
+24332 330,805
+243321 944
+243322 2,064
+243323 18,888
+243324 66,951
+243325 243,490
+243326 -1,532
+25 Dansk Sprogn‘vns komma af oktober 2003.
+251 Der skal komma   ,
+2511 efter leds‘tninger:
+25111 Hvis bygningen forlades efter kl. 18, skal porten l†ses.
+25112 Jeg s‘tter mine kommaer(,) som jeg vil, og gider ikke h›re mere vr›vl.
+25113 Pigen(,) der st†r i baren, er min s›ster.
+2512 ved tilf›jelser:
+25121 Endelig n†ede vi frem, tr‘tte og glade.
+25122 Peter Nielsen, anf›rer for FCK, lover sejr i returkampen.
+25123 Peter Nielsen, der er anf›rer for FCK, lover sejr i returkampen.
+2513 mellem sideordnede s‘tninger:
+25131 Vinden peb, og tordenen rullede.
+25132 At vinden peb, og at tordenen rullede, var ikke til at tage fejl af.
+2514 i opremsninger:
+25141 Han k›bte sild, ost og m‘lk.
+252 Der skal helst ikke komma   (,)
+2521 foran leds‘tninger:
+25211 Jeg ved(,) at han er klog.
+25212 Jeg s‘tter mine kommaer(,) som jeg vil.
+25213 Kender du pigen(,) der st†r i baren?
+3 } Program pluk; {Source code
+31 Data-erkl‘ringer
+311 compiler directives
+3111 } {$M 8192,0,0} {Memory stack 8K, heap 0
+3112 } {$R-} {range overflow check NB + ved test.
+3113 } {$S-} {stack overflow check
+3114 } {$V-} {var-string check
+312 } uses{TPU-files
+3121 } Dos,{Swapvectors, Exec
+3122 } Crt;{TextColor
+313 } const{ASCII-tegn
+31311 } BS=#8;{BackSpace
+31312 } CR=#13;{Carriage Return
+31313 } Esc=#27;{Escape
+31314 } B=#32;{Blank
+31315 } Z=#48;{Zero
+313211 } Op=#200;{Op pil
+313212 } Vp=#203;{Venstre pil
+313221 } Hp=#205;{H›jre pil
+313222 } Np=#208;{Ned pil
+313231 } PU=#201;{PageUp
+313232 } PD=#209;{PageDown
+31331 } ctrV=#22;{invers video toggle
+31332 } beep=#7;{advarselssignal
+31333 } ctrR=#18;{Run
+31334 } Pins=#210;{Insert
+31335 } Pdel=#211;{Delete
+31341 } Phome=#199;{Home
+31342 } Pend=#207;{End
+31343 } ctrE=#5;{Edit
+31344 } ctrP=#16;{Print
+31345 } ctrS=#19;{Save
+3135 } cf=['0'..'9'];{Ciffer
+314 } var{
+31411 } Input,{
+31412 } Output{
+3141} : text;{files
+31421 } A,{query ordinal fraction
+31422 } X,{record ordinal fraction
+31423 } Filnavn{
+3142} : String;{
+31431 } Q,{Refresh Screen flag
+31432 } UnS,{UnSaved data flag
+31433 } Ins,{Insert Mode toggle
+31434 } InV,{Invers Video toggle
+31435 } S{cursor position
+3143} : Byte;{
+31441 } C{keystroke
+3144} : Char;{
+31451 } N,{line count
+31452 } skip{scroll count
+3145} : Integer;{
+32 Procedure-erkl‘ringer
+321 PosData , lgt     , fix    , ReadCtrlKey
+3211 } Function PosData(X:string):byte;{position of datafield
+32111 } var{
+3211111 } i{
+321111} : byte;{
+32112 } begin{
+321121 } i:=1;{
+321122 } while(X[i] in cf)do{
+3211221 } inc(i);{
+321123 } PosData:=i{
+32112} end;{
+3212 } Function lgt(X:string):byte;{sidste ikke-blanke tegn
+32121 } var{
+3212111 } i{
+321211} : byte;{
+32122 } begin{
+321221 } i:=Length(X);{
+321222 } while(X[i]=B)do{
+3212221 } dec(i);{
+321223 } lgt:=i{
+32122}  end;{
+3213 } Procedure fix(var X:string); {fixed length string
+32132 } begin{
+321321 } FillChar(X[Length(X)+1],254-Length(X),B);{blank padding
+321322 } X[0]:=#254{length byte = maximum - 1{
+32132}  end;{
+3214 } Procedure ReadCtrlKey;{Read Control Key
+32142 } begin{
+321421 } GotoXY(S,1);{
+321422 } C:=ReadKey;{
+321423 } if C=#0{
+3214231 } then{
+32142311 } C:=Chr(128+Ord(ReadKey)){
+32142}  end;{
+322 Sort    , Compare , DOScmd , Open
+3221 } Procedure Sort;{
+32211 Erkl‘ringer
+322111 } var{
+3221111 } s:array[1..4]of string;{records
+3221112 } f:array[1..4]of text;{files
+3221113 } a,b,c,d:byte;{permutation
+3221114 } r:longint;{ antal runs
+3221115 } w:boolean;{
+322112 } procedure pass;{
+3221121 Erkl‘ringer
+32211211 } procedure sw(var a,b:byte);{swap
+322112112 } begin a:=a xor b; b:=a xor b; a:=a xor b end;{
+32211212 } procedure rd;{read
+322112122 } begin{
+3221121221 } if EOF(f[a]){
+32211212211 } then begin{
+322112122111 } Close(f[a]);{
+322112122112 } s[a]:=#255 {
+32211212211}  end{
+32211212212 } else{
+322112122121 } ReadLn(f[a],s[a]){
+322112122}  end;{
+32211213 } function wt:boolean;{write
+322112132 } begin{
+3221121321 } s[c]:=s[a];{
+3221121322 } w:=s[c]=#255;{
+3221121323 } if w{
+32211213231 } then begin{
+322112132311 } Close(f[c]);{
+322112132312 } Close(f[d]){
+32211213231}  end{
+32211213232 } else{
+322112132321 } WriteLn(f[c],s[c]);{
+3221121324 } wt:=w{
+322112132}  end;{
+3221122 } begin{
+322112211 } r:=1;{
+3221122121 } Reset(f[a]);{
+3221122122 } Reset(f[b]);{
+3221122131 } Rewrite(f[c]);{
+3221122132 } Rewrite(f[d]);{
+322112221 } rd;{l‘s f›rste record
+322112222 } sw(a,b);{
+322112223 } s[c]:='';{
+322112224 } repeat{
+3221122241 } rd;{
+3221122242 } if s[a]>s[b]{
+32211222421 } then{
+322112224211 } sw(a,b);{
+3221122243 } if ((s[b]=#255)and(s[a]<s[c])) or (s[b]<s[c]){
+32211222431 } then begin{
+322112224311 } inc(r);{
+322112224312 } sw(c,d);{
+322112224313 } s[c]:=''{
+32211222431}  end;{
+3221122244 } if s[a]<s[c]{
+32211222441 } then sw(a,b){
+322112224} until wt;{
+322112231 } sw(a,c);{
+322112232 } sw(b,d){
+3221122}  end;{
+32212 } begin{
+3221211 } assign(f[1],'FIL2.OF');{
+3221212 } assign(f[2],'SORT2.OF');{
+3221213 } assign(f[3],'SORT3.OF');{
+3221214 } assign(f[4],'SORT4.OF');{
+3221215 } rewrite(f[2]);{
+3221221 } a:=1;{
+3221222 } b:=2;{
+3221223 } c:=3;{
+3221224 } d:=4;{
+3221225 } pass;{f›rste passage
+3221231 } assign(f[1],'SORT1.OF');{
+3221232 } while r>2 do pass;{anden til n‘stsidste passage
+3221233 } assign(f[c],'FIL1.OF');{
+3221234 } pass{sidste passage
+32212}  end;{
+3222 } Function  Compare(X,A:String):byte;{Ordinal Fraction comparison
+32221 Erkl‘ringer
+322211 } const{
+3222111 } C:array[0.. 7]of byte{
+32221111 }=(White,LightGreen,LightRed,Yellow,Black,Black,Black,Black);{
+3222112 } T:array[0..17]of byte=(0,0,2,0,0,2,4,1,4,0,0,0,0,0,0,0,0,0);{
+3222113 } KI=[  1,2,   5,  7,    13, 17];{
+3222114 } KJ=[      3, 5,  7,    13, 17];{
+3222115 } KU=[0,         6,  8,9       ];{
+322212 } var V,I,J,K:byte;{
+322213 } function S(X:char):byte;{
+3222132 } begin S:=2*ord(X in ['1'..'9'])+ord(X=Z)end;{
+32222 } begin{
+3222211 } V:=0;{
+3222212 } I:=1;{
+3222213 } J:=1;{
+322222 } repeat{
+3222221 } K:=S(A[I])+3*(S(X[J])+3*ord(A[I]=X[J]));{
+3222222 } V:=V or T[K];{
+3222223 } inc(I,ord(K in KI));{
+3222224 } inc(J,ord(K in KJ)){
+322222}  until K in KU;{
+322223 } Compare:=C[V]{
+32222}  end;{
+3223 } Procedure DOScmd(X:string);{Execute command string
+32231 } var S:byte;{
+32232 } begin{
+322321 } ClrScr;{
+322322 } S:=PosData(X);{
+322323 } SwapVectors;{
+322324 } Exec(GetEnv('comspec'),'/C '+copy(X,S,77-S));{ DosError ?
+322325 } SwapVectors {ups. nederste sk‘rmlinie er hvid.
+32232} end;{ups. nederste sk‘rmlinie er hvid.
+3224 } Procedure Open;{
+32242 } begin{
+322421 } Filnavn:=ParamStr(1);{
+322422 } if Filnavn=''{
+3224221 } then{ default
+32242211 } Filnavn:='pluk.of';{
+322423 } Assign(Input,Filnavn);{
+322424 } {$I-}Reset(Input){$I+};{
+322425 } if IOResult=2{
+3224251 } then begin{filen findes ikke
+32242511 } Rewrite(Input);{ny fil
+32242512 } Reset(Input){
+3224251}  end{
+32242}  end;{
+323 GWrite  , WtA     , RdWtX  , RdWtA
+3231 } Procedure GWrite(I:byte;Y:string);{mark cursorposition
+32311 } var{
+3231111 } C{farve
+323111} :byte;{
+32312 } begin{
+3231211 } fix(Y);{
+3231212 } C:=Black*Inv+I*(1-Inv);{
+3231213 } TextBackground(I+Black-C);{
+3231221 } TextColor(C);{
+3231222 } Write(Copy(Y,1,S-1));{
+3231231 } TextColor(C+(LightMagenta-C)*ord(S<PosData(Y)));{
+3231232 } Write(Copy(Y,S,1));{
+3231241 } TextColor(C);{
+3231242 } Write(Copy(Y,S+1,80-S)){
+32312}  end;{GWrite
+3232 } Procedure WtA;{Write A
+32322 } begin{
+323221 } Q:=Ord(C in cf+[Vp,Hp,Op,Np,BS,PD,PU,CR,ctrV]);{
+323222 } skip:=skip*(1-Ord(C in cf+[BS]));{
+323223 } N:=0;{
+323224 } GotoXY(1,1);{
+323225 } GWrite(White,Copy(A,1,80-Length(ParamStr(1)))+ParamStr(1)){
+32322}  end;{WtA
+3233 } Procedure RdWtX;{Read and Write X
+32331 } var I:byte;{farve
+32332 } begin{
+323321 } if EOF(Input){
+3233211 } then begin{blankstil resten
+32332111 } Q:=0;{
+32332112 } inc(skip,(N-skip)*ord(skip>N));{skip:=min(skip,N)
+32332113 } while(N<skip+23)do begin{
+323321131 } inc(N);{
+323321132 } GWrite(Black,B){
+32332113}  end{
+3233211}  end{
+3233212 } else begin{l‘s og skriv en linie
+32332121 } ReadLn(Input,X);{
+32332122 } I:=Compare(X,A);{
+32332123 } if(I<>Black){
+323321231 } then begin{linien er valgt
+3233212311 } inc(N);{
+3233212312 } if(skip<N)and(N<=skip+23){
+32332123121 } then{der er plads p† sk‘rmen
+323321231211 } GWrite(I,X){
+323321231}  end{
+3233212}  end{
+32332}  end;{RdWtX
+3234 } Procedure RdWtA;{Read and Write query ordinal fraction
+32341 Erkl‘ringer
+323411 } Procedure ctrS_;{Save
+3234112 } begin{
+323411211 } Reset(Input);{
+323411212 } Assign(Output,Filnavn);{
+323411213 } {$I- }Rewrite(Output);{$I+ }{
+32341122 } if IOResult=0{
+323411221 } then begin{
+3234112211 } repeat{
+32341122111 } ReadLn(Input,X);{
+32341122112 } WriteLn(Output,X){
+3234112211}  until EOF(Input);{
+3234112212 } UnS:=0;{
+3234112213 } Close(Output){
+323411221}  end{
+323411222 } else{ skrivebeskyttet
+3234112221 } Write(beep);{
+323411231 } Close(Input);{
+323411232 } Assign(Input,Filnavn);{
+323411233 } Reset(Input){
+3234112}  end;{
+323412 } Procedure ctrP_;{'Print' til FIL2.OF
+3234122 } begin{
+323412211 } Reset(Input);{
+323412212 } Assign(Output,'FIL2.OF');{
+323412213 } Rewrite(Output);{
+32341222 } repeat{
+323412221 } ReadLn(Input,X);{
+323412222 } if Compare(X,A)>0{
+3234122221 } then{
+32341222211 } WriteLn(Output,X){
+32341222}  until EOF(Input);{
+32341223 } Close(Output){
+3234122}  end;{
+323413 } Procedure Esc_;{Rollback
+3234132 } begin{
+32341321 } Assign(Input,Filnavn);{
+32341322 } Reset(Input);{
+32341323 } UnS:=0;{
+32341324 } C:=CR{
+3234132}  end;{
+323414 } Procedure Del_;{
+3234142 } begin{
+32341421 } Delete(X,S,1);{
+32341422 } X:=X+B{
+3234142}  end;{
+323415 } Procedure ctrE_;{Edit-mode
+3234151 Erkl‘ringer
+32341511 } var{
+3234151111} i{
+323415111} : byte;{
+32341512 } Procedure EditX;{Edit Record
+323415121 Erkl‘ringer
+3234151211 } var{
+323415121111 } Y{
+32341512111} : string;{
+3234151212 } Procedure Bulk(Ny,Gl:string);{Bulk Move
+32341512121 Erkl‘ringer
+323415121211 } var{
+32341512121111 } i{
+32341512121112 },j{
+32341512121113 },beepflag{
+3234151212111} :byte;{
+32341512121121 } X{
+3234151212112} :string;{
+323415121212 } Function Nul(N:integer):string;{
+3234151212121 } var{
+323415121212111 } j{
+32341512121211} : integer;{
+323415121212121 } s{
+32341512121212} : string;{
+3234151212122 } begin{Nul
+32341512121221 } s:='';{
+32341512121222 } for j:=1 to N do {
+323415121212221 } s:=s+Z;{
+32341512121223 } Nul:=s{
+3234151212122}  end;{
+323415121213 } Function Omdob(X,Gl,Ny:string):string;{Fjerde-proportionalen
+3234151212131 } var{
+323415121213111 } i,{
+323415121213112 } j{
+32341512121311} : byte;{
+323415121213121 } Y{
+32341512121312} : string;{
+3234151212132 } begin{Omdob
+32341512121321 } for i:=PosData(X)-1 downto 1 do{
+323415121213211 } if(X[i]<>Z)and(X[i]=Gl[i]){
+3234151212132111 } then{
+32341512121321111 } Delete(X,i,1);{
+32341512121322 } Ny:=Copy(Ny,1,PosData(Ny)-1);{
+32341512121323 } Y:='';{
+32341512121324 } while(X[1]<>B) do begin{UPS, der beh›ver ikke at v‘re en B.
+323415121213241 } if(Ny>'')and(Ny[1]<>Z){
+3234151212132411 } then{
+32341512121324111 } Y:=Y+Ny[1]{
+3234151212132412 } else begin{
+32341512121324121 } Y:=Y+X[1];{
+32341512121324122 } Delete(X,1,1){
+3234151212132412}  end;{
+323415121213242 } Delete(Ny,1,1){
+32341512121324}  end;{
+323415121213251 } i:=0;{
+323415121213252 } for j:=1 to PosData(Ny)-1 do{
+3234151212132521 } if Ny[j]<>Z then{
+32341512121325211 } i:=j;{
+323415121213253 } Omdob:=Y+Copy(Ny,1,i)+X{
+3234151212132}  end;{Omdob
+32341512122 } begin{Bulk
+323415121221 f›r sl›jfen
+3234151212211 } Reset(Input);{
+3234151212212 } Rewrite(Output);{
+3234151212213 } Insert(Nul(100-PosData(Gl)),Gl,PosData(Gl));{
+3234151212214 } Insert(Nul(100-PosData(Ny)),Ny,PosData(Ny));{
+3234151212215 } beepflag:=0;{
+323415121222 } repeat{
+3234151212221 } ReadLn(Input,X);{en datalinie
+3234151212222 } i:=Compare(X,Ny);{TIL-nummer
+3234151212223 } j:=Compare(X,Gl);{FRA-nummer
+3234151212224 } if j=LightGreen{
+32341512122241 } then{
+323415121222411 } X:=Omdob(X,Gl,Ny);{
+3234151212225 } if(i in[White,LightGreen]) and not(j in[White,LightGreen]){
+32341512122251 } then{ overskriv
+323415121222511 } beepflag:=1{
+32341512122252 } else{
+323415121222521 } if j<>White{
+3234151212225211 } then{
+32341512122252111 } WriteLn(Output,X){
+323415121222}  until EOF(Input);{
+323415121223 } if beepflag=1{
+3234151212231 } then{
+32341512122311 } write(beep){
+32341512122}  end;{Bulk
+323415122 } begin{EditX
+3234151221 initialisering
+32341512211 } Ins:=1;{
+32341512212 } GotoXY(1,1);{
+32341512213 } fix(X);{
+32341512214 } GWrite(White,X);{
+32341512215 } Y:=X;{
+32341512216 } S:=PosData(X);{
+3234151222 } repeat{
+32341512221 } ReadCtrlKey;{
+32341512222 } case C of{
+323415122221 Kontroltaster:
+3234151222211 } ctrR:DOScmd(X);{Run:
+3234151222212 } Hp:Inc(S,Ord(S<80));{H›jrepil:
+3234151222213 } Vp:Dec(S,Ord(1<S));{Venstrepil:
+3234151222214 } Pins:Ins:=1-Ins;{
+3234151222215 } Pdel:Del_;{Delete:
+3234151222216 } Pend:S:=1+lgt(X);{End:
+323415122222 } BS:if 1<S{Backspace
+3234151222221 } then begin{
+32341512222211 } Dec(S);{
+32341512222212 } Del_{
+3234151222221} end;{
+323415122223 Ingen virkning:
+3234151222231 } Phome:;{Home:
+3234151222233 } PU:;{ Page Up
+3234151222234 } PD:;{ Page Down
+3234151222235 } Op:;{ Op pil
+3234151222236 } Np:;{ Ned pil
+323415122224 } B..#255: begin{alfanumerisk undtagen de n‘vnte:
+3234151222241 } Delete(X,Ins*254+S-Ins*S,1);{
+3234151222242 } Insert(C,X,S);{
+3234151222243 } Inc(S,Ord(S<80)){
+323415122224} end{
+32341512222} end;{case
+323415122231 } GotoXY(1,1);{
+323415122232 } GWrite(White,X){
+3234151222}  until C in[CR,Esc];{
+3234151223 } if C=Esc{
+32341512231 } then{
+323415122311 } X:=Y{
+32341512232 } else begin{
+323415122321 } UnS:=1;{
+323415122322 } if Compare(X,A)<>White{
+3234151223221 } then{
+32341512232211 } Bulk(X,A){
+32341512232}  end;{
+32341512241 } X:=Copy(X,1,lgt(X));{ellers f†r jeg 'line too long'
+32341512242 } if PosData(X)<=lgt(X){
+323415122421 } then{ linien er ikke tom
+3234151224211 } WriteLn(Output,X);{
+32341512243 } A:=copy(X,1,PosData(X)-1)+Z;{
+32341512244 } fix(A);{
+32341512245 } S:=PosData(A)-1;{18 maj 2004: L afskaffes.
+32341512246 } C:=CR{
+323415122} end;{EditX
+3234152 } begin{ctrE_
+32341521 initialis‚r
+323415211 } i:=1;{default:=inds‘t linie
+323415212 } Assign(Output,'FIL2.OF');{
+323415213 } {$I-} Rewrite(Output) {$I+};{if ioresult<>0 then writeprotected
+323415214 } Reset(Input);{
+32341522 } repeat{
+323415221 } ReadLn(Input,X);{
+323415222 } if Compare(X,A)=White{
+3234152221 } then begin{u‘ndret linienummer
+32341522211 } i:=0;{slet eller ret
+32341522212 } EditX{
+3234152221}  end{
+3234152222 } else{
+32341522221 } WriteLn(Output,X) {
+32341522}  until EOF(Input);{
+32341523 afslut
+323415231 } Close(Input);{
+323415232 } if i=1{
+3234152321 } then begin{inds‘t
+32341523211 } X:=Copy(A,1,PosData(A)-2);{
+32341523212 } EditX{
+3234152321}  end;{
+323415233 } Close(Output);{
+3234152341 } Sort;{
+3234152342 } Assign(Input,'FIL1.OF');{
+3234152343 } Reset(Input)end;{ctrE
+32342 } begin{RdWtA
+323421 } ReadCtrlKey;{into global variable  C
+323422 test C
+3234221 } case C of{kontroltegn
+32342211 } ctrE:ctrE_;{Edit
+32342212 } ctrP:ctrP_;{Print
+32342213 } ctrS:if Uns=1 then ctrS_;{Save
+32342214 } ctrV:InV:=1-InV;{toggle Invers Video flag
+32342215 } Esc :if Uns=1 then Esc_ {Rollback
+3234221} end;{case
+3234222 } if(C=BS)and(PosData(A)>2){backspace
+32342221 } then begin{
+323422211 } S:=PosData(A)-2;{
+323422212 } A[S]:=Z;{
+323422213 } A[S+1]:=B{
+32342221}  end;{
+3234223 } if C in cf{ciffer
+32342231 } then begin{ciffer
+323422311 } A[S]:=C;{
+323422312 } if(S=PosData(A)-1)and(S<79-Length(ParamStr(1))){
+3234223121 } then begin{
+32342231211 } Inc(S);{
+32342231212 } A[S]:=Z {
+3234223121}  end{
+32342231}  end;{
+3234224 } Inc(S,-Ord(C=Vp)*Ord(1<S)+Ord(C=Hp)*Ord(S<PosData(A)-1));{cursor
+3234225 scroll
+32342251 } Inc(skip,Ord(C=Np)-Ord(C=Op)+23*(Ord(C=PD)-Ord(C=PU)));{
+32342252 } skip:=skip*ord(skip>0);{
+323423 } Reset(Input);{
+323424 } WtA{
+32342}  end;{RdWtA
+33 } begin{
+331 Initialisering
+33111 } Open;{datafil †bnes
+33112 } InV:=0;{InversVideo off
+33113 } UnS:=0;{UnSaved off
+33114 } S:=1;{cursorposition
+33115 } C:=Z;{input '0'
+33121 } A:=C;{
+33122 } fix(A);{blanke
+33123 } skip:=0;{
+33124 } WtA;{write query A
+332 } repeat{
+3321 } if(Q=0)or(KeyPressed){
+33211 } then{
+332111 } RdWtA{
+33212 } else{
+332121 } RdWtX{
+332}  until C=Esc;{
+333 Afslutning
+3331 } Close(Input);{
+3332 } DOScmd('DEL SORT*.OF');{
+3333 } TextBackground(Black);{
+3334 } TextColor(White);{
+3335 } ClrScr{
+33}  end.
+34 Kommentarer
+341 Status:
+3411 2000
+341111 15 maj
+3411111 Esc og ctrS afpudset.
+3411112 Bulk-move kodet. ctrP kodet.
+3411113 Sk‘rm 80*24 tegn. edit.
+3411114 sort, ctrS
+341112 april
+3411121 Hj‘lpefiler slettes - undtagen FIL1.OF, som omd›bes. (aux, tm
+3411122 Skrivebeskyttet fil giver skrivefors›gsadvarsel (beep).
+3411123 Tomme filer oprettes i begyndelsen. 13 april 2000
+341113 22. august
+3411131 Ny Toshiba-computer. Programmet f†r linienumre.
+341114 sept 2000
+3411141 defaultdatafil data.of
+3411142 ERROR 200 (Divide by zero).
+34111421 Fejlen er fundet: TPPATCH PLUK.EXE 20.september 2000.
+3411143 Bulk move sk‘rer linierne af efter 60 tegn. Rettet
+341115 Bulk move overskriver ikke den hvide.
+3411151 Rettet. Et ';' for meget f›r write
+341121 Default parameter: data.of
+341122 rette S80 til String.
+341123 Invers video: ombyt baggrundsfarve og forgrundsfarve.
+3411231 Lysebl†t linienr, m›rkebl† cursorkolonne. 9/10-2000
+3411232 Hvid skrift p† sort baggrund ved udhop.
+341124 Advarsel ved overskrivning
+3412 2001
+34121 Control-V toggler invers video.
+34122 Control-R under edit: DOSkommando.
+341221 uden linienr. 30/11-2000.
+341222 sortfiler slettes.
+341223 2001-01-12. Efter insert (ctrlE Esc) er der en tom linie.
+341224 beep ved flyt selvom der ikke overskrives. Rettet.
+341225 ved edit var linienummeret sort.
+341231 CTR-R afhang af cursorpositionen for at finde datafeltet. 16/1-2001
+341232 efterstillede nuller undertrykkes efter ctrE 16/1-2001
+341233 80 tegn vedr›rer kun udskrift til sk‘rm. Fix80 afskaffet. 21/1-2001
+341234 filen 'henrik.of' --> 'he'. 26/1-2001 (blanktegn overskrev RCW)
+341235 filnavn i ›verste linie. editerer lange linier. 1/2-2001
+341236 ParamStr(1) i ›verste linie. 2/2-2001
+34124 pilop og pilned. 2/6-2001.
+3413 2003
+34131 compilering sammen med BOJ.PAS 16/5-2003
+341311 oprydning 4/5-2003. retablering af kildetekst. Sort sk‘rmbund.
+34132 ctrV: ikke nulstille SKIP
+34133 20/5-2003:
+341331 GWrite finder nu ikke-ciffer i st. f. blanktegn.
+341332 Compare checker p† 'in cf' i st.f. '<Z'
+341333 9/6-2003 Farver i GWrite.
+341334 fusionerer pluk.pas og boj.pas til en fil !
+341335 Fusionerer programmet i datafilen  PLUK.OF 20/7-2003
+34134 august 2003
+341341 omd›b er lokal i bulk
+341342 flt fjerner ikke l‘ngere h›jrestillede nuller.
+341343 Det g›r derfor omd›b. Der b›r laves en anden compare.
+341344 S,L og A reddes efter EditX. Sej redning efter mislykket rettelse!
+341345 beepflag i stedet for et beep pr overskrivning
+3414 2004
+34141 lille rettelse i ctrS_
+34142 Variabel 'L' afskaffet. 'A:=X' efter EditX. 18 maj.
+34143 Rettet s† linie 1a overlever.
+3415 2005
+34151 Kald til Esc_ betinges af Uns.
+34152 End-knappen flytter cursor. 20.sept.2005
+3416 2006
+34161 18/1: 'end' skrives uden blanktegn efter linienummeret
+342 nsker:
+3421 2003
+34211 Transponeringsfacilitet.
+34212 Markering af linienr-l‘ngde med bl† baggrund
+342121 antal nuller i sp›rgsm†let styres. 30/11-2000.
+34213 Summationsfacilitet.
+34214 Blanktegn til undertrykkelse af gule linier.
+34215 Den nederste linie bliver ikke brugt.
+34216 cut and paste
+34217 nov.2003: edit af linienr skal l›bende f›lges af sk‘rmbilledet.
+3422 2004
+34221 Johnny Boesen synes at page-down skal efterlade den sidste side.
+3423 2006
+342310 H›jrestillede nuller b›r fjernes automatisk (?)
+343 udu
+3431 DOSCMD og DELETE SORT*.OF virker ikke mere !
+3432 Man kan ikke editere hvis en anden k›rer PLUK
+3433 Bulk flytter kun den f›rste af multiple hvide linier
+3434 error 150 hvis pluk k›rer i en andet vindue samtidig.
+3435 Hvis du fortryder en rettelse, s† sorterer den !
+3436 fjerne '0000' fra Bulk-koden.
+3437 Efter Esc fra Bulk Move f›lger A ikke med. (19/5-2004)
+3438 Bl†b‘rgr›dproblem efter ctrl-R.
